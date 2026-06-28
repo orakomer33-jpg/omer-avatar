@@ -1,46 +1,28 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Dijital Ömer</title>
-    <style>
-        body { margin: 0; padding: 20px; font-family: sans-serif; text-align: center; background-color: transparent; }
-        #avatar-container { margin-bottom: 20px; }
-        #avatar { width: 200px; cursor: pointer; transition: transform 0.2s; }
-        .controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
-        button { padding: 10px 15px; cursor: pointer; background: #0056b3; color: white; border: none; border-radius: 5px; font-weight: bold; }
-        button:hover { background: #004494; }
-    </style>
 </head>
 <body>
 
-<div id="avatar-container">
-    <!-- Görselin adını avatar.jpg olarak güncelledik -->
-    <img id="avatar" src="avatar.jpg" alt="Dijital Ömer">
-</div>
-
-<div class="controls">
-    <button onclick="konus('https://drive.google.com/uc?export=download&id=1sbJCnj9XLgYJaMxjd7KEBcrz_ejFx41K')">PFW</button>
-    <button onclick="konus('https://drive.google.com/uc?export=download&id=1qTDdDhZ3dHa1gYfzPYIlKOBSJPk_E4qC')">Numesys</button>
-    <button onclick="konus('https://drive.forest.google.com/uc?export=download&id=1fLoSb8cWzqtI8YJee2rPl645_pPwHbJF')">Bias</button>
-    <button onclick="konus('https://drive.google.com/uc?export=download&id=1mM_GB6d2JOua1oz9z1iLNr_igjKGRWIv')">TÜBİTAK</button>
-    <button onclick="konus('https://drive.google.com/uc?export=download&id=1CfdAEWTpTHMTfy57TY8TjreL4HmoUGBq')">TUSAŞ</button>
-</div>
+<!-- Resim yüklenemezse hata ayıklamak için alt etiketi ekledik -->
+<img id="avatar" src="avatar.jpg" alt="Karakter Görseli" style="width:200px; display:block;">
 
 <audio id="ses-dosyasi"></audio>
 
+<div style="margin-top:20px;">
+    <button onclick="cal('https://drive.google.com/uc?export=download&id=1sbJCnj9XLgYJaMxjd7KEBcrz_ejFx41K')">PFW</button>
+    <button onclick="cal('https://drive.google.com/uc?export=download&id=1qTDdDhZ3dHa1gYfzPYIlKOBSJPk_E4qC')">Numesys</button>
+    <button onclick="cal('https://drive.google.com/uc?export=download&id=1fLoSb8cWzqtI8YJee2rPl645_pPwHbJF')">Bias</button>
+    <button onclick="cal('https://drive.google.com/uc?export=download&id=1mM_GB6d2JOua1oz9z1iLNr_igjKGRWIv')">TÜBİTAK</button>
+    <button onclick="cal('https://drive.google.com/uc?export=download&id=1CfdAEWTpTHMTfy57TY8TjreL4HmoUGBq')">TUSAŞ</button>
+</div>
+
 <script>
-    function konus(sesLink) {
+    function cal(url) {
         var ses = document.getElementById("ses-dosyasi");
-        var avatar = document.getElementById("avatar");
-        
-        ses.src = sesLink;
-        avatar.style.transform = "scale(1.1)"; 
-        ses.play();
-        
-        ses.onended = function() {
-            avatar.style.transform = "scale(1)";
-        };
+        ses.src = url;
+        ses.play().catch(e => alert("Sesi oynatmak için önce sayfaya bir kez tıkla!"));
     }
 </script>
 
