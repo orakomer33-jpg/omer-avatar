@@ -1,0 +1,19 @@
+<!-- Bu kod o minik sayfanın içine gelecek -->
+<div id="avatar-container">
+    <img id="static-avatar" src="Gemini_Generated_Image_vkawbdvkawbdvkaw.png" style="width:200px;">
+    <video id="speaking-video" style="display:none; width:200px;" src=""></video>
+</div>
+
+<button onclick="playVideo('bias-video.mp4')">Bias Deneyimi</button>
+
+<script>
+function playVideo(videoUrl) {
+    const img = document.getElementById('static-avatar');
+    const vid = document.getElementById('speaking-video');
+    
+    img.style.display = 'none'; // Resim gizlenir
+    vid.src = videoUrl; // Video yüklenir
+    vid.style.display = 'block'; // Video gösterilir
+    vid.play();
+}
+</script>
