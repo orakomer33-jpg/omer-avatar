@@ -2,47 +2,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <style>
-        body { font-family: sans-serif; text-align: center; }
-        #start-btn { padding: 15px 30px; font-size: 18px; background: #0056b3; color: white; border: none; cursor: pointer; border-radius: 5px; margin-top: 50px; }
-        #content { display: none; }
-        #avatar { width: 200px; display: block; margin: 0 auto; }
-        .controls { margin-top: 20px; }
-        button { padding: 10px 15px; margin: 5px; cursor: pointer; }
-    </style>
 </head>
-<body>
+<body style="text-align:center; font-family:sans-serif;">
 
-<button id="start-btn" onclick="startApp()">Deneyimleri Başlat</button>
+<img src="avatar.jpg" style="width:150px; display:block; margin:0 auto;">
+<h3>Deneyimlerim</h3>
 
-<div id="content">
-    <img id="avatar" src="avatar.jpg">
-    <!-- controls özelliği ekleyerek tarayıcının sesi yönetmesine izin veriyoruz -->
-    <audio id="ses-dosyasi" controls style="display:none;"></audio>
-    <div class="controls">
-        <button onclick="cal('https://media1.vocaroo.com/mp3/182rVa21GTqS')">PFW</button>
-        <button onclick="cal('https://media1.vocaroo.com/mp3/1ccgD1c1m1LS')">Numesys</button>
-        <button onclick="cal('https://media1.vocaroo.com/mp3/1lEu4Ox9Q2nA')">Bias</button>
-        <button onclick="cal('https://media1.vocaroo.com/mp3/1gFjaaFc1HeL')">TÜBİTAK</button>
-        <button onclick="cal('https://media1.vocaroo.com/mp3/1lgnyIF5hHLK')">TUSAŞ</button>
-    </div>
-</div>
-
-<script>
-    function startApp() {
-        document.getElementById('start-btn').style.display = 'none';
-        document.getElementById('content').style.display = 'block';
-    }
-
-    function cal(url) {
-        var ses = document.getElementById("ses-dosyasi");
-        ses.src = url;
-        ses.load(); 
-        ses.play().catch(function(error) {
-            alert("Ses çalınamadı. Lütfen internet bağlantınızı kontrol edin veya butona tekrar basın.");
-        });
-    }
-</script>
+<!-- Burası önemli: target="_blank" ile yeni sekmede açıyoruz -->
+<a href="https://voca.ro/182rVa21GTqS" target="_blank" style="display:block; padding:10px; margin:5px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">PFW Deneyimini Dinle</a>
+<a href="https://voca.ro/1ccgD1c1m1LS" target="_blank" style="display:block; padding:10px; margin:5px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">Numesys Deneyimini Dinle</a>
+<a href="https://voca.ro/1lEu4Ox9Q2nA" target="_blank" style="display:block; padding:10px; margin:5px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">Bias Deneyimini Dinle</a>
+<a href="https://voca.ro/1gFjaaFc1HeL" target="_blank" style="display:block; padding:10px; margin:5px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">TÜBİTAK Deneyimini Dinle</a>
+<a href="https://voca.ro/1lgnyIF5hHLK" target="_blank" style="display:block; padding:10px; margin:5px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">TUSAŞ Deneyimini Dinle</a>
 
 </body>
 </html>
