@@ -4,37 +4,43 @@
     <meta charset="UTF-8">
     <style>
         body { font-family: sans-serif; text-align: center; }
+        #start-btn { padding: 15px 30px; font-size: 18px; background: #0056b3; color: white; border: none; cursor: pointer; border-radius: 5px; margin-top: 50px; }
+        #content { display: none; }
         #avatar { width: 200px; display: block; margin: 0 auto; }
         .controls { margin-top: 20px; }
-        /* Vocaroo oynatıcılarını başlangıçta gizliyoruz */
-        .player { display: none; margin-top: 10px; }
+        button { padding: 10px 15px; margin: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-<img id="avatar" src="avatar.jpg">
+<button id="start-btn" onclick="startApp()">Deneyimleri Başlat</button>
 
-<div class="controls">
-    <button onclick="goster('pfw')">PFW</button>
-    <button onclick="goster('numesys')">Numesys</button>
-    <button onclick="goster('bias')">Bias</button>
-    <button onclick="goster('tubitak')">TÜBİTAK</button>
-    <button onclick="goster('tusas')">TUSAŞ</button>
+<div id="content">
+    <img id="avatar" src="avatar.jpg">
+    <!-- controls özelliği ekleyerek tarayıcının sesi yönetmesine izin veriyoruz -->
+    <audio id="ses-dosyasi" controls style="display:none;"></audio>
+    <div class="controls">
+        <button onclick="cal('https://media1.vocaroo.com/mp3/182rVa21GTqS')">PFW</button>
+        <button onclick="cal('https://media1.vocaroo.com/mp3/1ccgD1c1m1LS')">Numesys</button>
+        <button onclick="cal('https://media1.vocaroo.com/mp3/1lEu4Ox9Q2nA')">Bias</button>
+        <button onclick="cal('https://media1.vocaroo.com/mp3/1gFjaaFc1HeL')">TÜBİTAK</button>
+        <button onclick="cal('https://media1.vocaroo.com/mp3/1lgnyIF5hHLK')">TUSAŞ</button>
+    </div>
 </div>
 
-<!-- Vocaroo Embed Kodları -->
-<div id="pfw" class="player"><iframe width="100%" height="60" src="https://voca.ro/182rVa21GTqS" frameborder="0"></iframe></div>
-<div id="numesys" class="player"><iframe width="100%" height="60" src="https://voca.ro/1ccgD1c1m1LS" frameborder="0"></iframe></div>
-<div id="bias" class="player"><iframe width="100%" height="60" src="https://voca.ro/1lEu4Ox9Q2nA" frameborder="0"></iframe></div>
-<div id="tubitak" class="player"><iframe width="100%" height="60" src="https://voca.ro/1gFjaaFc1HeL" frameborder="0"></iframe></div>
-<div id="tusas" class="player"><iframe width="100%" height="60" src="https://voca.ro/1lgnyIF5hHLK" frameborder="0"></iframe></div>
-
 <script>
-    function goster(id) {
-        // Tüm oynatıcıları gizle
-        document.querySelectorAll('.player').forEach(p => p.style.display = 'none');
-        // Seçileni göster
-        document.getElementById(id).style.display = 'block';
+    function startApp() {
+        document.getElementById('start-btn').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+    }
+
+    function cal(url) {
+        var ses = document.getElementById("ses-dosyasi");
+        ses.src = url;
+        ses.load(); 
+        ses.play().catch(function(error) {
+            alert("Ses çalınamadı. Lütfen internet bağlantınızı kontrol edin veya butona tekrar basın.");
+        });
     }
 </script>
 
