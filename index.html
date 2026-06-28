@@ -1,19 +1,26 @@
-<!-- Bu kod o minik sayfanın içine gelecek -->
-<div id="avatar-container">
-    <img id="static-avatar" src="Gemini_Generated_Image_vkawbdvkawbdvkaw.png" style="width:200px;">
-    <video id="speaking-video" style="display:none; width:200px;" src=""></video>
-</div>
-
-<button onclick="playVideo('bias-video.mp4')">Bias Deneyimi</button>
-
-<script>
-function playVideo(videoUrl) {
-    const img = document.getElementById('static-avatar');
-    const vid = document.getElementById('speaking-video');
+<!DOCTYPE html>
+<html>
+<body>
+    <!-- Karakter görseli -->
+    <img id="avatar" src="Gemini_Generated_Image_vkawbdvkawbdvkaw_2.png" style="width:200px; cursor:pointer;" onclick="konus()">
     
-    img.style.display = 'none'; // Resim gizlenir
-    vid.src = videoUrl; // Video yüklenir
-    vid.style.display = 'block'; // Video gösterilir
-    vid.play();
-}
-</script>
+    <!-- Ses oynatıcı -->
+    <audio id="ses-dosyasi" src="SENIN_DIRECT_DRIVE_LINKIN_BURAYA"></audio>
+
+    <script>
+        function konus() {
+            var ses = document.getElementById("ses-dosyasi");
+            var avatar = document.getElementById("avatar");
+            
+            // Buraya basit bir animasyon ekleyebiliriz (örneğin görseli hafif büyütme)
+            avatar.style.transform = "scale(1.05)"; 
+            ses.play();
+            
+            // Ses bitince karakteri eski haline getir
+            ses.onended = function() {
+                avatar.style.transform = "scale(1)";
+            };
+        }
+    </script>
+</body>
+</html>
