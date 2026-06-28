@@ -5,8 +5,9 @@
 </head>
 <body>
 
-<!-- Resim yüklenemezse hata ayıklamak için alt etiketi ekledik -->
-<img id="avatar" src="avatar.jpg" alt="Karakter Görseli" style="width:200px; display:block;">
+<!-- Mutlak yol ile resim çektik -->
+<img id="avatar" src="https://orakomer33-jpg.github.io/omer-avatar/avatar.jpg" 
+     style="width:200px; display:block;">
 
 <audio id="ses-dosyasi"></audio>
 
@@ -22,7 +23,9 @@
     function cal(url) {
         var ses = document.getElementById("ses-dosyasi");
         ses.src = url;
-        ses.play().catch(e => alert("Sesi oynatmak için önce sayfaya bir kez tıkla!"));
+        ses.play().catch(function(error) {
+            console.log("Oynatma reddedildi, lütfen sayfaya tıklayın.");
+        });
     }
 </script>
 
