@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        body { font-family: sans-serif; text-align: center; background-color: transparent; }
-        #start-btn { padding: 15px 30px; font-size: 18px; background: #0056b3; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        body { font-family: sans-serif; text-align: center; }
+        #start-btn { padding: 15px 30px; font-size: 18px; background: #0056b3; color: white; border: none; cursor: pointer; border-radius: 5px; margin-top: 50px; }
+        #content { display: none; }
         #avatar { width: 200px; display: block; margin: 0 auto; }
         .controls { margin-top: 20px; }
-        button { padding: 10px 15px; margin: 5px; cursor: pointer; background: #0056b3; color: white; border: none; border-radius: 5px; }
+        button { padding: 10px 15px; margin: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-<div id="start-overlay">
-    <button id="start-btn" onclick="startAudio()">Dijital Ömer'i Başlat</button>
-</div>
+<button id="start-btn" onclick="startApp()">Deneyimleri Başlat</button>
 
-<div id="content" style="display:none;">
-    <img id="avatar" src="https://orakomer33-jpg.github.io/omer-avatar/avatar.jpg">
-    <audio id="ses-dosyasi"></audio>
+<div id="content">
+    <img id="avatar" src="avatar.jpg">
+    <!-- controls özelliği ekleyerek tarayıcının sesi yönetmesine izin veriyoruz -->
+    <audio id="ses-dosyasi" controls style="display:none;"></audio>
     <div class="controls">
         <button onclick="cal('https://media1.vocaroo.com/mp3/182rVa21GTqS')">PFW</button>
         <button onclick="cal('https://media1.vocaroo.com/mp3/1ccgD1c1m1LS')">Numesys</button>
@@ -29,15 +29,18 @@
 </div>
 
 <script>
-    function startAudio() {
-        document.getElementById('start-overlay').style.display = 'none';
+    function startApp() {
+        document.getElementById('start-btn').style.display = 'none';
         document.getElementById('content').style.display = 'block';
     }
 
     function cal(url) {
         var ses = document.getElementById("ses-dosyasi");
         ses.src = url;
-        ses.play();
+        ses.load(); 
+        ses.play().catch(function(error) {
+            alert("Ses çalınamadı. Lütfen internet bağlantınızı kontrol edin veya butona tekrar basın.");
+        });
     }
 </script>
 
