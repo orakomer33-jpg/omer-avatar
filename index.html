@@ -3,17 +3,29 @@
 <head>
     <meta charset="UTF-8">
 </head>
-<body style="text-align:center; font-family:sans-serif;">
+<body style="text-align:center; font-family:sans-serif; background:white;">
 
-<img src="avatar.jpg" style="width:150px; display:block; margin:0 auto;">
-<h3>Deneyimlerim</h3>
+<img src="avatar.jpg" style="width:200px; display:block; margin:0 auto;">
 
-<!-- Burası önemli: target="_blank" ile yeni sekmede açıyoruz -->
-<a href="https://voca.ro/182rVa21GTqS" target="_blank" style="display:block; padding:10px; margin:5px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">PFW Deneyimini Dinle</a>
-<a href="https://voca.ro/1ccgD1c1m1LS" target="_blank" style="display:block; padding:10px; margin:5px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">Numesys Deneyimini Dinle</a>
-<a href="https://voca.ro/1lEu4Ox9Q2nA" target="_blank" style="display:block; padding:10px; margin:5px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">Bias Deneyimini Dinle</a>
-<a href="https://voca.ro/1gFjaaFc1HeL" target="_blank" style="display:block; padding:10px; margin:5px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">TÜBİTAK Deneyimini Dinle</a>
-<a href="https://voca.ro/1lgnyIF5hHLK" target="_blank" style="display:block; padding:10px; margin:5px; background:#007bff; color:white; text-decoration:none; border-radius:5px;">TUSAŞ Deneyimini Dinle</a>
+<div style="margin-top:20px;">
+    <!-- Sesi doğrudan GitHub'dan çekiyoruz -->
+    <button onclick="cal('pfw.mp3')">PFW</button>
+    <button onclick="cal('numesys.mp3')">Numesys</button>
+    <button onclick="cal('bias.mp3')">Bias</button>
+    <button onclick="cal('tubitak.mp3')">TÜBİTAK</button>
+    <button onclick="cal('tusas.mp3')">TUSAŞ</button>
+</div>
+
+<!-- controls özelliğini ekledik, böylece tarayıcı kendi çalar'ını kullanacak -->
+<audio id="ses-dosyasi" controls style="margin-top:20px;"></audio>
+
+<script>
+    function cal(dosyaAdi) {
+        var ses = document.getElementById("ses-dosyasi");
+        ses.src = dosyaAdi;
+        ses.play();
+    }
+</script>
 
 </body>
 </html>
