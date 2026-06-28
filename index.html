@@ -2,45 +2,24 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <style>
-        body { margin: 0; padding: 20px; font-family: sans-serif; text-align: center; background-color: transparent; }
-        #avatar-container { margin-bottom: 20px; }
-        #avatar { width: 200px; cursor: pointer; transition: transform 0.2s; }
-        .controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-        button { padding: 10px 15px; cursor: pointer; background: #0056b3; color: white; border: none; border-radius: 5px; font-weight: bold; }
-        button:hover { background: #004494; }
-    </style>
 </head>
 <body>
 
-<div id="avatar-container">
-    <img id="avatar" src="Gemini_Generated_Image_vkawbdvkawbdvkaw_2.png" onclick="konus('https://drive.google.com/uc?export=download&id=1CfdAEWTpTHMTfy57TY8TjreL4HmoUGBq')">
+<!-- Resim yüklenemezse diye bir alt yazı (alt) ekledik -->
+<img id="avatar" src="Gemini_Generated_Image_vkawbdvkawbdvkaw_2.png" 
+     alt="Dijital Ömer" 
+     style="width:200px; cursor:pointer;" 
+     onclick="this.style.transform='scale(1.1)'; document.getElementById('ses-dosyasi').play()">
+
+<audio id="ses-dosyasi" src=""></audio>
+
+<div style="margin-top:20px;">
+    <button onclick="document.getElementById('ses-dosyasi').src='https://drive.google.com/uc?export=download&id=1sbJCnj9XLgYJaMxjd7KEBcrz_ejFx41K'; document.getElementById('ses-dosyasi').play()">PFW</button>
+    <button onclick="document.getElementById('ses-dosyasi').src='https://drive.google.com/uc?export=download&id=1qTDdDhZ3dHa1gYfzPYIlKOBSJPk_E4qC'; document.getElementById('ses-dosyasi').play()">Numesys</button>
+    <button onclick="document.getElementById('ses-dosyasi').src='https://drive.google.com/uc?export=download&id=1fLoSb8cWzqtI8YJee2rPl645_pPwHbJF'; document.getElementById('ses-dosyasi').play()">Bias</button>
+    <button onclick="document.getElementById('ses-dosyasi').src='https://drive.google.com/uc?export=download&id=1mM_GB6d2JOua1oz9z1iLNr_igjKGRWIv'; document.getElementById('ses-dosyasi').play()">TÜBİTAK</button>
+    <button onclick="document.getElementById('ses-dosyasi').src='https://drive.google.com/uc?export=download&id=1CfdAEWTpTHMTfy57TY8TjreL4HmoUGBq'; document.getElementById('ses-dosyasi').play()">TUSAŞ</button>
 </div>
-
-<div class="controls">
-    <button onclick="konus('https://drive.google.com/uc?export=download&id=1sbJCnj9XLgYJaMxjd7KEBcrz_ejFx41K')">PFW</button>
-    <button onclick="konus('https://drive.google.com/uc?export=download&id=1qTDdDhZ3dHa1gYfzPYIlKOBSJPk_E4qC')">Numesys</button>
-    <button onclick="konus('https://drive.google.com/uc?export=download&id=1fLoSb8cWzqtI8YJee2rPl645_pPwHbJF')">Bias</button>
-    <button onclick="konus('https://drive.google.com/uc?export=download&id=1mM_GB6d2JOua1oz9z1iLNr_igjKGRWIv')">TÜBİTAK</button>
-    <button onclick="konus('https://drive.google.com/uc?export=download&id=1CfdAEWTpTHMTfy57TY8TjreL4HmoUGBq')">TUSAŞ</button>
-</div>
-
-<audio id="ses-dosyasi"></audio>
-
-<script>
-    function konus(sesLink) {
-        var ses = document.getElementById("ses-dosyasi");
-        var avatar = document.getElementById("avatar");
-        
-        ses.src = sesLink;
-        avatar.style.transform = "scale(1.1)"; 
-        ses.play();
-        
-        ses.onended = function() {
-            avatar.style.transform = "scale(1)";
-        };
-    }
-</script>
 
 </body>
 </html>
